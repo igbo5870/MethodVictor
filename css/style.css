@@ -1,0 +1,13 @@
+body{
+	font-size: 18px;
+	font-family: 'Ubuntu', sans-serif;
+	margin: 0px;
+	padding: 0px;
+}
+header{
+	background-color: black;
+	height: 76px;	
+}
+header img{
+	height: 45px;
+}
