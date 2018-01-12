@@ -3,11 +3,66 @@ body{
 	font-family: 'Ubuntu', sans-serif;
 	margin: 0px;
 	padding: 0px;
+	background-image: url(../images/background-top1.jpg);
 }
 header{
 	background-color: black;
+	color: #fff;
 	height: 76px;	
+	align-items: center;
+	display: flex;
 }
 header img{
 	height: 45px;
 }
+.logo{
+	display: flex;
+	margin: auto;
+}
+.logo p{
+	padding-right: 1em;
+	padding-left: 1em;
+}
+.logo img{
+	height: 60px;
+}
+.presentFull{
+	width: 90%;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	margin-top: 2em;
+	margin-bottom: 2em;
+	color: #fff;
+}
+.card{
+	display: flex;
+	width: 90%;
+	justify-content: space-between;
+	align-items: center;
+	border: 2px solid #ed1450;
+	margin: auto;
+	margin-bottom: 1em;
+}
+.present{
+	width: 49%;	
+	background-color: #2b2b2b;
+	border-radius: 5px;
+}
+.title1{
+	text-align: center;
+	padding: 2em;
+}
+.card img{
+	width: 10%;
+	height: 50px;
+}
+.card p{
+	width: 40%;
+}
+.colorClass{
+	border-left: 1px solid #ed1450;
+	width: 10%;
+	height: 50px;
+}
+>>>>>>> master
