@@ -1,3 +1,4 @@
+
 /* global $ */
 // **************************************************************************
 (function main () {
@@ -86,22 +87,26 @@
     // Ajout de la carte de la personne absente / création de l'html /
     // ****************************************
     for (var i = 0; i < student.length; i++) {
-      console.log(student[i])
-      $('.cardFull').append(
-          '<div class="card">' +
-            '<img src="http://icdn.pro/images/fr/c/h/champignon-super-icone-8317-128.png">' +
+      $('.cardFull1').append(
+        '<div class="card" id="' + student[i] + '">' +
+          '<img src="images/' + student[i] + '.jpg">' +
             '<p>' + student[i] + '</p>' +
-            '<input id="checkBox" type="checkbox">' +
+            '<label for="test" class="checkbox">' +
+              '<input type="checkbox" id="test" value="' + student[i] + '">' +
+              '<span class="rounded"></span>' +
+            '</label>' +
+            '<div class="colorClass"></div>' +
           '</div>')
     }
 
-    if ($('.cardFull2 input').is(':checked')) {
-      $('input[type=checkbox]:checked').each(function () {
-        student.push($(this).val())
-      })
-      // console.log($('input:checked').val())
-    }
-    console.log(absent)
+    $('.check').on('click', function () {
+      if ($('.cardFull2 input').is(':checked')) {
+        $('input[type=checkbox]:checked').each(function () {
+          student.push($(this).val())
+        })
+      }
+      console.log(absent)
+    })
   }
   getPresent()
 
@@ -111,25 +116,29 @@
    * @return {[type]} [description]
    */
   function getAbsent () {
-    if ($('.cardFull input').is(':checked')) {
-      $('input[type=checkbox]:checked').each(function () {
-        absent.push($(this).val())
-
-        // Ajout de la carte de la personne absente / création de l'html /
-        // ****************************************
-        $('.cardFull2').append(
+    $('.check div img').on('click', function () {
+      if ($('.cardFull1 input').is(':checked')) {
+        $('input[type=checkbox]:checked').each(function () {
+          absent.push($(this).val())
+          // **************************
+          for (var i = 0; i < absent.length; i++) {
+            $('#' + absent[i]).hide()
+          }
+        })
+        for (var i = 0; i < absent.length; i++) {
+          $('.cardFull2').append(
           '<div class="cardFull">' +
             '<div class="card">' +
-              '<img src="http://icdn.pro/images/fr/c/h/champignon-super-icone-8317-128.png">' +
-              '<p>' + $(this).val() + '</p>' +
-              '<input id="checkBox" type="checkbox">' +
+              '<img src="images/' + absent[i] + '.jpg">' +
+              '<p>' + absent[i] + '</p>' +
+              '<input id="checkBox" type="checkbox" value="' + absent[i] + '">' +
             '</div>' +
           '</div>')
-      })
+        }
 
       // console.log($('input:checked').val())
-    }
-    console.log(absent)
+      }
+    })
   }
 
     // Quel input est check ? valeur de l'input
@@ -140,4 +149,10 @@
   // *******************
   createTeam(nbreTeam)        //
   // *******************
+  $('.check div img').mouseenter(function () {
+    $('.check div img').css({'transform': 'rotate(360deg)', 'transition': 'all 0.8s ease-in-out 0s'})
+  })
+  $('.check div img').mouseleave(function () {
+    $('.check div img').css({'transform': 'rotate(-360deg)', 'transition': 'all 0.8s ease-in-out 0s'})
+  })
 })()
