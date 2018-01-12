@@ -3,7 +3,9 @@ body{
 	font-family: 'Ubuntu', sans-serif;
 	margin: 0px;
 	padding: 0px;
-	background-color: #d3d3d3
+	background-image: url(../images/background-top1.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 /***************/
@@ -21,17 +23,48 @@ header img{
 	height: 45px;
 }
 
-.logo{
+.logoHeader{
 	display: flex;
 	margin: auto;
+	width: 80%;
 }
-.logo p{
+.logoHeader p{
 	padding-right: 1em;
 	padding-left: 1em;
 }
-.logo img{
+.logoHeader img{
 	height: 60px;
 }
+.listeHeader{
+	display:flex;
+	list-style: none;
+	align-items: center;
+	margin-left: -40px;
+}
+select{
+	background-color: #fff;
+	border: 0px;
+	padding: 10px;
+}
+.fa-cogs{
+	color: #ed1450;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+.fa-users{
+	padding-left: 1em;
+}
+.boutonRetour a{
+	display: flex;
+	color: #fff;
+	align-items: center;
+	text-decoration: none;
+}
+.fa-chevron-left{
+	padding-left: 1em;
+	padding-right: 10px;
+}
+
 
 /****************/
 /**Partie LISTE**/
@@ -41,8 +74,11 @@ header img{
 	margin: auto;
 	display: flex;
 	justify-content: space-around;
-	margin-top: 2em;
 	color: #fff;
+}
+.general{
+	background-color: rgba(0,0,0,0.8);
+	padding-top: 2em;
 }
 .card{
 	display: flex;
@@ -83,6 +119,7 @@ header img{
 .check{
 	display: flex;
 	width: 100%;
+	background-color: rgba(0,0,0,0.8);
 }
 .check div{
 	margin:auto;
@@ -139,9 +176,8 @@ footer ul .imagefooter .titlefooter{
     color: #fff;
     font-size: 20px;
 }
-footer ul .linkWeb{
-}
 .lienfooter a{
 	color: #d2003b;
 	text-decoration: none;
+	font-weight: bold;
 };
