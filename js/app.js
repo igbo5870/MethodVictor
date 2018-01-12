@@ -8,7 +8,7 @@
     'Christelle', 'Fabrice', 'Joris', 'Matheo', 'Ruud',
     'Vanessa']                                           // liste d'élève
   var absent = []
-  var nbreTeam = 10                                       // Nombre d'équipe
+  var nbreTeam = 3                                       // Nombre d'équipe
   var aleatoire                                          // Nombre aléatoire
   var nbreStudent = Math.round(student.length / nbreTeam) // Nombre d'étudient par équipe
   var buffer = []
@@ -45,9 +45,9 @@
    */
   function addStudent () {
     // student.push($('class').val())
-
     if (student.length === 1 && team[0].length <= 2) {
       var last = team[team.length - 1].push(student[0])
+      console.log(last)
       student = []
     }
   }
@@ -82,10 +82,61 @@
     absent.splice(name, 1)
   }
 
-  // Récupérer les id du html
-  $('#idname').on('click', function () {
-    console.log('Click')
-  })
+  function getPresent () {
+    // Ajout de la carte de la personne absente / création de l'html /
+    // ****************************************
+    for (var i = 0; i < student.length; i++) {
+      console.log(student[i])
+      $('.cardFull').append(
+          '<div class="card">' +
+            '<img src="http://icdn.pro/images/fr/c/h/champignon-super-icone-8317-128.png">' +
+            '<p>' + student[i] + '</p>' +
+            '<input id="checkBox" type="checkbox">' +
+          '</div>')
+    }
+
+    if ($('.cardFull2 input').is(':checked')) {
+      $('input[type=checkbox]:checked').each(function () {
+        student.push($(this).val())
+      })
+      // console.log($('input:checked').val())
+    }
+    console.log(absent)
+  }
+  getPresent()
+
+  /**
+   * Recupère les absents parmis la liste des apprenants et
+   * les affiches sur le tableau absents
+   * @return {[type]} [description]
+   */
+  function getAbsent () {
+    if ($('.cardFull input').is(':checked')) {
+      $('input[type=checkbox]:checked').each(function () {
+        absent.push($(this).val())
+
+        // Ajout de la carte de la personne absente / création de l'html /
+        // ****************************************
+        $('.cardFull2').append(
+          '<div class="cardFull">' +
+            '<div class="card">' +
+              '<img src="http://icdn.pro/images/fr/c/h/champignon-super-icone-8317-128.png">' +
+              '<p>' + $(this).val() + '</p>' +
+              '<input id="checkBox" type="checkbox">' +
+            '</div>' +
+          '</div>')
+      })
+
+      // console.log($('input:checked').val())
+    }
+    console.log(absent)
+  }
+
+    // Quel input est check ? valeur de l'input
+    // si c'est check j'affiche une image
+
+  getAbsent()
+
   // *******************
   createTeam(nbreTeam)        //
   // *******************
